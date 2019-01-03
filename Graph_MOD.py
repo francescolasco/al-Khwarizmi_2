@@ -14,7 +14,7 @@ class Node:
     The graph basic element: node.
     """
 
-    def __init__(self, id, value):
+    def __init__(self, id, value, weight = None):
         """
         Constructor.
         :param id: node ID (integer).
@@ -22,6 +22,7 @@ class Node:
         """
         self.id = id
         self.value = value
+        self.weight = weight
 
     def __eq__(self, other):
         """
@@ -37,6 +38,9 @@ class Node:
         :return: the string representation of the node.
         """
         return "[{}:{}]".format(self.id, self.value)
+    
+    def getWeight(self):
+        return self.weight
 
 
 class Edge:
