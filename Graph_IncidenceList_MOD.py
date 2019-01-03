@@ -1,7 +1,7 @@
 #Struttura Grafo, implementato tramite lista di incidenza, modificata per lo svolgimento della seconda prova prativa in itinere [IA 2018/19]
 
 
-from graph.Graph import GraphBase, Edge, Node
+from Graph_MOD import GraphBase, Edge, Node
 from list.DoubleLinkedList import ListaDoppiamenteCollegata as List
 
 
