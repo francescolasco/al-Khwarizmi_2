@@ -19,6 +19,7 @@ class Node:
         Constructor.
         :param id: node ID (integer).
         :param value: node value.
+        :param weight: weight value.
         """
         self.id = id
         self.value = value
@@ -40,6 +41,9 @@ class Node:
         return "[{}:{}]".format(self.id, self.value)
     
     def getWeight(self):
+        """
+        Returns weight value of the node.
+        """
         return self.weight
 
 
@@ -241,6 +245,14 @@ class GraphBase(ABC):
         Return the node degree.
         :param nodeId: the node id.
         :return: the node degree.
+        """
+        ...
+    
+    @abstractmethod
+    def maxWeight(self):
+        """
+        Return the ID of the most
+        heavy node.
         """
         ...
 

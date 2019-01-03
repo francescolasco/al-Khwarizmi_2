@@ -1,3 +1,5 @@
+#Struttura Grafo, implementato tramite lista di incidenza, modificata per lo svolgimento della seconda prova prativa in itinere [IA 2018/19]
+
 
 from graph.Graph import GraphBase, Edge, Node
 from list.DoubleLinkedList import ListaDoppiamenteCollegata as List
@@ -179,6 +181,22 @@ class GraphIncidenceList(GraphBase):
             return 0
         else:
             return len(self.inc[nodeId])
+    
+    def maxWeight(self):
+        """
+        Return the ID of the most
+        heavy node.
+        """
+        edges = self.getEdges()
+        maxW = None
+        for edge in edges:
+            if maxW != None:
+                if edge.getWeight() > maxW:
+                    maxW = edge.getWeight()
+            else:
+                maxW = edge.getWeight()
+        
+
 
     def print(self):
         """
