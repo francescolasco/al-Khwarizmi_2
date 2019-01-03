@@ -1,3 +1,8 @@
+from PQ_Dheap import PQ_DHeap
+from PQbinaryHeap import PQbinaryHeap
+from PQbinomialHeap import PQbinomialHeap
+from graph.Graph import *
+
 def prioritySearch(graph, pqType):
 	"""
 	This algorithm executes a prioritySearch based on the genericSearch of a graph. 
@@ -16,7 +21,7 @@ def prioritySearch(graph, pqType):
         print("Using ", pqType, "with d = ", d)
     else:
         return
-        
+
 	exploredNodes = []
 
 	while not pq.isEmpty():
