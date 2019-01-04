@@ -144,13 +144,13 @@ class GraphBase(ABC):
         ...
 
     @abstractmethod
-    def addNode(self, elem):
+    def addNode(self, elem, weight = None):
         """
         Add a new node with the specified value.
         :param elem: the node value.
         :return: the create node.
         """
-        newNode = Node(self.nextId, elem)
+        newNode = Node(self.nextId, elem, weight)
         self.nextId += 1
         return newNode
 
