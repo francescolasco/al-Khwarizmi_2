@@ -2,7 +2,11 @@ from priorityQueue.PQ_Dheap import PQ_DHeap
 from priorityQueue.PQbinaryHeap import PQbinaryHeap
 from priorityQueue.PQbinomialHeap import PQbinomialHeap
 from graph.Graph import * 
+<<<<<<< HEAD
 from Graph_IncidenceList_MOD import GraphIncidenceList
+=======
+from Graph_IncidenceList_MOD import *
+>>>>>>> 4901346a53c55b831f5afe213810a982c1e4e71c
 
 
 class GraphIL_prioritySearch(GraphIncidenceList):
