@@ -92,6 +92,3 @@ def prioritySearch_PQ_DHeap(graph, d):
 				pq.insert(ID, KEY)
 
 	return exploredNodes
-
-if __name__ == "__main__":
-	
