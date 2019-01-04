@@ -1,6 +1,6 @@
-from PQ_Dheap import PQ_DHeap
-from PQbinaryHeap import PQbinaryHeap
-from PQbinomialHeap import PQbinomialHeap
+from priorityQueue.PQ_Dheap import PQ_DHeap
+from priorityQueue.PQbinaryHeap import PQbinaryHeap
+from priorityQueue.PQbinomialHeap import PQbinomialHeap
 from graph.Graph import *
 
 def prioritySearch_PQbinaryHeap(graph):
@@ -93,3 +93,5 @@ def prioritySearch_PQ_DHeap(graph, d):
 
 	return exploredNodes
 
+if __name__ == "__main__":
+	
