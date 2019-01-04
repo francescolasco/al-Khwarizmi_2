@@ -197,7 +197,7 @@ class GraphIncidenceList(GraphBase):
                     maximum = [edge.id, edge.getWeight()]
             else:
                 maximum = [edge.id, edge.getWeight()]    
-
+        return maximum
 
     def print(self):
         """
