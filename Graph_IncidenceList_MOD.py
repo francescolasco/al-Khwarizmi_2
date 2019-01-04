@@ -189,14 +189,14 @@ class GraphIncidenceList(GraphBase):
         id and weight of the most
         heavy vertex.
         """
-        edges = self.getEdges()
+        nodes = self.getNodes()
         maximum = [None, None]
-        for edge in edges:
+        for node in nodes:
             if maximum[0] != None:
-                if edge.getWeight() > maximum[1]:
-                    maximum = [edge.id, edge.getWeight()]
+                if node.getWeight() > maximum[1]:
+                    maximum = [node.id, node.getWeight()]
             else:
-                maximum = [edge.id, edge.getWeight()]    
+                maximum = [node.id, node.getWeight()]    
         return maximum
 
     def print(self):
