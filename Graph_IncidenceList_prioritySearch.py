@@ -2,10 +2,10 @@ from priorityQueue.PQ_Dheap import PQ_DHeap
 from priorityQueue.PQbinaryHeap import PQbinaryHeap
 from priorityQueue.PQbinomialHeap import PQbinomialHeap
 from graph.Graph import * 
-from Graph_IncindenceList_MOD import *
+from Graph_IncidenceList_MOD import GraphIncidenceList
 
 
-class GraphIL_prioritySearch(GraphIncindenceList):
+class GraphIL_prioritySearch(GraphIncidenceList):
     
         def __init__(self):
             """
