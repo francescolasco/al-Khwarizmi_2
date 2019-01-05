@@ -3,6 +3,7 @@ from priorityQueue.PQbinaryHeap import PQbinaryHeap
 from priorityQueue.PQbinomialHeap import PQbinomialHeap
 from Graph_IncidenceList_MOD import GraphIncidenceList
 from graph.Graph import *
+from random import *
 
 class GraphIL_prioritySearch(GraphIncidenceList):
     
@@ -102,3 +103,21 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                         pq.insert(ID, KEY)
 
             return exploredNodes
+
+
+def buildGraph(nVertices):
+    graph = GraphIL_prioritySearch()
+    verticesID = []
+    
+    #adding the first Vertex:
+    verticesID.append((graph.addNode(None, randint(1, nVertices * 2))).id)
+
+    #adding the remaining (n - 1) vertices:
+    for i in range(nVertices - 1):
+        newNodeID = (graph.addNode(None, randint(1, nVertices * 2))).id
+        linkedNodeID = choice(verticesID)
+        verticesID.append(newNodeID)
+        graph.insertEdge(newNodeID, linkedNodeID)
+        graph.insertEdge(linkedNodeID, newNodeID)
+    
+    return graph
