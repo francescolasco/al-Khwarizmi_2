@@ -35,9 +35,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
 
                 exploredNodes.append(u)
                 
-                for vertex in self.getAdj(u):
-                    ID = vertex.id
-                    KEY = -(vertex.key)
+                for ID in self.getAdj(u):
+                    node = self.getNode(ID)
+                    KEY = -(node.getWeight())
                     if ID not in exploredNodes:
                         pq.insert(ID, KEY)
 
@@ -65,9 +65,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
 
                 exploredNodes.append(u)
                 
-                for vertex in self.getAdj(u):
-                    ID = vertex.id
-                    KEY = -(vertex.key)
+                for ID in self.getAdj(u):
+                    node = self.getNode(ID)
+                    KEY = -(node.getWeight())
                     if ID not in exploredNodes:
                         pq.insert(ID, KEY)
 
@@ -96,9 +96,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
 
                 exploredNodes.append(u)
                 
-                for vertex in self.getAdj(u):
-                    ID = vertex.id
-                    KEY = -(vertex.key)
+                for ID in self.getAdj(u):
+                    node = self.getNode(ID)
+                    KEY = -(node.getWeight())
                     if ID not in exploredNodes:
                         pq.insert(ID, KEY)
 
