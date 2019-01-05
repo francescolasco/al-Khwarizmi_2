@@ -106,9 +106,18 @@ class GraphIL_prioritySearch(GraphIncidenceList):
 
 
 def buildGraph(nVertices):
+    """
+    build a Graph ready for prioritySearch()
+    using random weights and random edges 
+    between vertices.
+    The graph will have as may edges as 2 * nVertices
+    to ensure connection from any tail node to head node
+    and backwards.
+    :param nVertices: number of vertices of the graph.
+    :return: the created graph.
     graph = GraphIL_prioritySearch()
     verticesID = []
-    
+    """
     #adding the first Vertex:
     verticesID.append((graph.addNode(None, randint(1, nVertices * 2))).id)
 
