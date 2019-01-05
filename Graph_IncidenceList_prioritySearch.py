@@ -82,7 +82,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             :return: the list of the exploration.
             """
             assert d >= 1, "spippettone"
-            pq = PQ_DHeap()
+            pq = PQ_DHeap(d)
             exploredNodes = []
 
             s = self.maxWeight()
