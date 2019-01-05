@@ -20,16 +20,15 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             graph is empty or not.
             :return: boolean.
             """
+            return self.nodes == {}
 
-            if self.nodes == {}:
-                return True
-            return False
 
         def prioritySearch_PQbinaryHeap(self):
             """
-            This algorithm executes a prioritySearch based on the genericSearch of a graph. 
-            It uses a list to represent the visit of the graph and a Binary Heap as priority queue for the nodes to explore.
-            :param graph: a graph to explore.
+            This algorithm executes a prioritySearch 
+            based on the genericSearch of a graph. 
+            It uses a list to represent the visit of the graph and
+             a Binary Heap as priority queue for the nodes to explore.
             :return: the list of the exploration.
             """
             pq = PQbinaryHeap()
@@ -57,9 +56,10 @@ class GraphIL_prioritySearch(GraphIncidenceList):
 
         def prioritySearch_PQbinomialHeap(self):
             """
-            This algorithm executes a prioritySearch based on the genericSearch of a graph. 
-            It uses a list to represent the visit of the graph and a Binomial Heap as priority queue for the nodes to explore.
-            :param graph: a graph to explore.
+            This algorithm executes a prioritySearch
+            based on the genericSearch of a graph. 
+            It uses a list to represent the visit of the graph and 
+            a Binomial Heap as priority queue for the nodes to explore.
             :return: the list of the exploration.
             """
             pq = PQbinomialHeap()
@@ -87,9 +87,11 @@ class GraphIL_prioritySearch(GraphIncidenceList):
 
         def prioritySearch_PQ_DHeap(self, d):
             """
-            This algorithm executes a prioritySearch based on the genericSearch of a graph. 
-            It uses a list to represent the visit of the graph and a D-Heap as priority queue for the nodes to explore.
-            :param graph: a graph to explore.
+            This algorithm executes a prioritySearch 
+            based on the genericSearch of a graph. 
+            It uses a list to represent the visit of the graph and
+            a D-Heap as priority queue for the nodes to explore.
+            :param d: size of the d-heap.
             :return: the list of the exploration.
             """
             assert d >= 1, "spippettone"
@@ -118,7 +120,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
 
 def buildGraph(nVertices):
     """
-    build a Graph ready for prioritySearch()
+    Build a Graph ready for prioritySearch()
     using random weights and random edges 
     between vertices.
     The graph will have as may edges as (2 * nVertices - 2 ) 
@@ -147,7 +149,7 @@ def buildGraph(nVertices):
 
 def addVertices(graph, nVertices):
     """
-    add as many nodes as param nVertices,
+    Add as many nodes as param nVertices,
     mantaining the convention of using weights in range
     (1 to 2 * number of final vertices).
     The function modifies the graph in place. ( no return value needed )
@@ -180,7 +182,7 @@ def addVertices(graph, nVertices):
 
 def addEdges(graph, nEdges):
     """
-    add as many edgs as param nEdges, 
+    Add as many edgs as param nEdges, 
     avoiding to add edges from a vertex to itself.
     The function modifies the graph in place. ( no return value needed )
     :param graph: graph to modify.

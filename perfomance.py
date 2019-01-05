@@ -1,26 +1,57 @@
-from Graph_IncidenceList_MOD import *
-from random import randint
+from Graph_IncidenceList_prioritySearch import *
+from Graph_IncidenceList_prioritySearch import buildGraph
+from random import *
+from timer import timer
 
-def generateWeightedGraph(numNodes):
-    graph = GraphIncidenceList()
-    nodes = []
 
-    graph.print()
+################################ V1 ###################################
+def performanceStrana(nVertices, d = None):
+    assert d != None, "You must provide a 'd' for the D-Heap test!"
+    graph = buildGraph(nVertices)
 
-    for i in range(numNodes):
-        node = graph.addNode(i, randint(1, numNodes))
-        nodes.append(node)
+    @timer
+    def testPrioritySearch_PQbinaryHeap():
+        graph.prioritySearch_PQbinaryHeap()
 
-    for node_src in nodes:
-        for node_dst in nodes:
-            if node_src != node_dst:
-                print("---")
-                print("Adjacent nodes {},{}: {}".format(node_src.id, node_dst.id, graph.isAdj(node_src.id, node_dst.id)))
-                graph.insertEdge(node_src.id, node_dst.id, node_src.id + node_dst.id)
-                print("Edge inserted: from {} to {}".format(node_src.id, node_dst.id))
-                print("Adjacent nodes {},{}: {}".format(node_src.id, node_dst.id, graph.isAdj(node_src.id, node_dst.id)))
-                graph.print()
-                print("---")
-    print("Num Nodes:", graph.numNodes())
-    print("Num Edges:", graph.numEdges())
-    graph.print()
+    @timer
+    def testPrioritySearch_PQbinomialHeap():
+        graph.prioritySearch_PQbinomialHeap()
+
+    @timer
+    def testPrioritySearch_PQ_DHeap(d):
+        graph.prioritySearch_PQ_DHeap(d)
+
+    testPrioritySearch_PQbinaryHeap()
+    testPrioritySearch_PQbinomialHeap()
+    testPrioritySearch_PQ_DHeap(d)
+
+################################# V2 ##################################
+
+binaryHeap = open("performanceData/performancebinaryHeap.txt", "w+")
+binomialHeap = open("performanceData/performancebinomialHeap.txt", "w+")
+dHeap = open("performanceData/performancedHeap.txt", "w+")
+
+def performanceGraphIL(nVertices, d = None):
+    assert d != None, "You must provide a 'd' for the D-Heap test!"
+    graph = buildGraph(nVertices)
+
+    start = time()
+    graph.prioritySearch_PQbinaryHeap()
+    time = time()-start
+    binaryHeap.write("{}\t{}\n".format(nVertices, time))
+
+
+    start = time()
+    graph.prioritySearch_PQbinomialHeap()
+    time = time()-start
+    binomialHeap.write("{}\t{}\n".format(nVertices, time))
+
+
+    start = time()
+    graph.prioritySearch_PQ_DHeap(d)
+    time = time()-start
+    dHeap.write("{}\t{}\n".format(nVertices, time))
+
+    binaryHeap.close()
+    binomialHeap.close()
+    dHeap.close()
