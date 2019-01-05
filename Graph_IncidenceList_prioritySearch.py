@@ -14,6 +14,17 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             super().__init__()
 
 
+        def isEmpty(self):
+            """
+            method used to understand if the 
+            graph is empty or not.
+            :return: boolean.
+            """
+
+            if self.nodes == {}:
+                return True
+            return False
+
         def prioritySearch_PQbinaryHeap(self):
             """
             This algorithm executes a prioritySearch based on the genericSearch of a graph. 
@@ -110,7 +121,8 @@ def buildGraph(nVertices):
     build a Graph ready for prioritySearch()
     using random weights and random edges 
     between vertices.
-    The graph will have as may edges as 2 * nVertices
+    The graph will have as may edges as (2 * nVertices - 2 ) 
+    (the first vertex added is not going to be linked)
     to ensure connection from any tail node to head node
     and backwards.
     :param nVertices: number of vertices of the graph.
@@ -131,3 +143,53 @@ def buildGraph(nVertices):
         graph.insertEdge(linkedNodeID, newNodeID)
     
     return graph
+
+
+def addVertices(graph, nVertices):
+    """
+    add as many nodes as param nVertices,
+    mantaining the convention of using weights in range
+    (1 to 2 * number of final vertices).
+    The function modifies the graph in place. ( no return value needed )
+    :param graph: graph to modify.
+    :param nVertices: number of vertices to add.
+    """
+    if graph.isEmpty():
+        verticesID = []
+        verticesID.append((graph.addNode(None, randint(1, nVertices * 2))).id)
+        
+        for i in range(nVertices - 1):
+            newNodeID = (graph.addNode(None, randint(1, nVertices * 2))).id
+            linkedNodeID = choice(verticesID)
+            verticesID.append(newNodeID)
+            graph.insertEdge(newNodeID, linkedNodeID)
+            graph.insertEdge(linkedNodeID, newNodeID)
+
+    else:
+        #retrieving previous id:
+        verticesID = list(graph.nodes.keys())
+        weightRange = (len(verticesID) + nVertices) * 2
+        for i in range(nVertices):
+            newNodeID = (graph.addNode(None, randint(1, weightRange))).id
+            linkedNodeID = choice(verticesID)
+            verticesID.append(newNodeID)
+            graph.insertEdge(newNodeID, linkedNodeID)
+            graph.insertEdge(linkedNodeID, newNodeID)
+
+
+
+def addEdges(graph, nEdges):
+    """
+    add as many edgs as param nEdges, 
+    avoiding to add edges from a vertex to itself.
+    The function modifies the graph in place. ( no return value needed )
+    :param graph: graph to modify.
+    :param nEdges: number of edges to add.
+    """
+    assert (not graph.isEmpty()), "graph must contain at least an element."
+    verticesID = list(graph.nodes.keys())
+    for i in range (nEdges):
+        headVertex = choice(verticesID)
+        tailVertex = choice(list(filter(lambda i : i != headVertex, verticesID)))
+        graph.insertEdge(headVertex, tailVertex)
+        graph.insertEdge(tailVertex, headVertex)
