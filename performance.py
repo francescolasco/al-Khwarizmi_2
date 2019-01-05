@@ -37,20 +37,20 @@ def performanceGraphIL(nVertices, d = None):
 
     start = time()
     graph.prioritySearch_PQbinaryHeap()
-    time = time()-start
-    binaryHeap.write("{}\t{}\n".format(nVertices, time))
+    tempo = time()-start
+    binaryHeap.write("{}\t{}\n".format(nVertices, tempo))
 
 
     start = time()
     graph.prioritySearch_PQbinomialHeap()
-    time = time()-start
-    binomialHeap.write("{}\t{}\n".format(nVertices, time))
+    tempo = time()-start
+    binomialHeap.write("{}\t{}\n".format(nVertices, tempo))
 
 
     start = time()
     graph.prioritySearch_PQ_DHeap(d)
-    time = time()-start
-    dHeap.write("{}\t{}\n".format(nVertices, time))
+    tempo = time()-start
+    dHeap.write("{}\t{}\n".format(nVertices, tempo))
 
     binaryHeap.close()
     binomialHeap.close()
