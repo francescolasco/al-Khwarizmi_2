@@ -115,9 +115,10 @@ def buildGraph(nVertices):
     and backwards.
     :param nVertices: number of vertices of the graph.
     :return: the created graph.
+    """
     graph = GraphIL_prioritySearch()
     verticesID = []
-    """
+    
     #adding the first Vertex:
     verticesID.append((graph.addNode(None, randint(1, nVertices * 2))).id)
 
