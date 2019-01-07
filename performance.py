@@ -2,6 +2,7 @@ from Graph_IncidenceList_prioritySearch import *
 from Graph_IncidenceList_prioritySearch import buildGraph
 from random import *
 from timer import timer
+from time import *
 
 
 ################################ V1 ###################################
@@ -27,12 +28,13 @@ def performanceStrana(nVertices, d = None):
 
 ################################# V2 ##################################
 
-binaryHeap = open("performanceData/performancebinaryHeap.txt", "w+")
-binomialHeap = open("performanceData/performancebinomialHeap.txt", "w+")
-dHeap = open("performanceData/performancedHeap.txt", "w+")
+
 
 def performanceGraphIL(nVertices, d = None):
     assert d != None, "You must provide a 'd' for the D-Heap test!"
+    binaryHeap = open("performanceData/performancebinaryHeap.txt", "a")
+    binomialHeap = open("performanceData/performancebinomialHeap.txt", "a")
+    dHeap = open("performanceData/performancedHeap.txt", "a")
     graph = buildGraph(nVertices)
 
     start = time()
@@ -61,3 +63,8 @@ numberOfVertices = [10, 100, 1000, 5000, 10000]
 def dataForGraphs(nVertices, d):
     for i in numberOfVertices:
         performanceGraphIL(i, d)
+
+def ereaseDataFromGraphs():
+    binaryHeap = open("performanceData/performancebinaryHeap.txt", "w+").close()
+    binomialHeap = open("performanceData/performancebinomialHeap.txt", "w+").close()
+    dHeap = open("performanceData/performancedHeap.txt", "w+").close()
