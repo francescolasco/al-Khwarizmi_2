@@ -191,7 +191,9 @@ def addEdges(graph, nEdges):
     assert (not graph.isEmpty()), "graph must contain at least an element."
     verticesID = list(graph.nodes.keys())
     for i in range (nEdges):
-        headVertex = choice(verticesID)
-        tailVertex = choice(list(filter(lambda i : i != headVertex, verticesID)))
+        headVertex = choice(list(filter(lambda i: sorted(graph.getAdj(i) + [i]) != sorted(verticesID), verticesID)))
+
+        tailVertex = choice(list(filter(lambda i : i not in graph.getAdj(headVertex)+[headVertex], verticesID)))
+        
         graph.insertEdge(headVertex, tailVertex)
         graph.insertEdge(tailVertex, headVertex)
