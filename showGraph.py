@@ -45,7 +45,7 @@ def prioritySearchDraw(graph):
     networkx.draw_networkx(G, pos, arrows = True, with_labels = True, node_size = 500, labels = labels) 
     
     plt.axis('off')
-    outputName = name + str(name_n) + ' .png'
+    outputName = name + str(name_n) + '.png'
     plt.savefig(outputName)
     name_n += 1
 
@@ -66,7 +66,7 @@ def prioritySearchDraw(graph):
         networkx.draw_networkx_nodes(G, pos, nodelist = exploredNodes, node_color = 'b', node_size = 500)
         
         plt.axis('off')
-        outputName = name + str(name_n) + ' .png'
+        outputName = name + str(name_n) + '.png'
         plt.savefig(outputName)
         name_n += 1
 

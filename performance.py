@@ -64,6 +64,10 @@ def dataForGraphs(nVertices, d):
     for i in nVertices:
         performanceGraphIL(i, d)
 
+def dataForGraphs_(maxV, d):
+    for i in range(10,maxV+1,10):
+        performanceGraphIL(i, d)
+
 def ereaseDataFromGraphs():
     binaryHeap = open("performanceData/performancebinaryHeap.txt", "w+").close()
     binomialHeap = open("performanceData/performancebinomialHeap.txt", "w+").close()
