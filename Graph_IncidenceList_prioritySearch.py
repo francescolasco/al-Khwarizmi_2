@@ -22,6 +22,14 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             """
             return self.nodes == {}
 
+        def isFull(self):
+            """
+            method used to understand if the 
+            graph is full or not.
+            :return: boolean.
+            """            
+            maxCapacity = self.numNodes() * (self.numNodes() - 1)
+            return self.numEdges() == maxCapacity
 
         def prioritySearch_PQbinaryHeap(self):
             """
@@ -189,6 +197,8 @@ def addEdges(graph, nEdges):
     :param nEdges: number of edges to add.
     """
     assert (not graph.isEmpty()), "graph must contain at least an element."
+    assert (not graph.isFull()), "graph is already full."
+    assert (graph.numEdges() + 2 * nEdges <= graph.numNodes() * graph.numNodes() - 1), "too many edges to add."
     verticesID = list(graph.nodes.keys())
     for i in range (nEdges):
         headVertex = choice(list(filter(lambda i: sorted(graph.getAdj(i) + [i]) != sorted(verticesID), verticesID)))
