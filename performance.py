@@ -61,7 +61,7 @@ def performanceGraphIL(nVertices, d = None):
 
 numberOfVertices = [10, 100, 1000, 5000, 10000]
 def dataForGraphs(nVertices, d):
-    for i in numberOfVertices:
+    for i in nVertices:
         performanceGraphIL(i, d)
 
 def ereaseDataFromGraphs():
