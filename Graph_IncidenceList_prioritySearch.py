@@ -41,6 +41,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             """
             pq = PQbinaryHeap()
             exploredNodes = []
+            pqIds = []
 
             s = self.maxWeight()
             ID = s[0]
@@ -56,8 +57,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in exploredNodes:
+                    if ID not in exploredNodes and ID not in pqIds:
                         pq.insert(ID, KEY)
+                        pqIds.append(ID)
 
             return exploredNodes
 
@@ -72,6 +74,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             """
             pq = PQbinomialHeap()
             exploredNodes = []
+            pqIds = []
 
             s = self.maxWeight()
             ID = s[0]
@@ -87,8 +90,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in exploredNodes:
+                    if ID not in exploredNodes and ID not in pqIds:
                         pq.insert(ID, KEY)
+                        pqIds.append(ID)
 
             return exploredNodes
 
@@ -105,6 +109,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             assert d >= 1, "spippettone"
             pq = PQ_DHeap(d)
             exploredNodes = []
+            pqIds = []
 
             s = self.maxWeight()
             ID = s[0]
@@ -120,8 +125,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in exploredNodes:
+                    if ID not in exploredNodes and ID not in pqIds:
                         pq.insert(ID, KEY)
+                        pqIds.append(ID)
 
             return exploredNodes
 
