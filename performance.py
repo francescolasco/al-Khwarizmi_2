@@ -4,7 +4,12 @@ from time import *
 
 
 def performanceGraphIL(graph, version, d = None):
-    assert d != None, "You must provide a 'd' for the D-Heap test!"
+    try:
+        assert d != None, "You must provide a 'd' for the D-Heap test!"
+    except AssertionError as myError:
+        print(myError)
+        return
+        
     binaryHeapVertices = open("performanceData/performancebinaryHeapVertices.txt", "a")
     binaryHeapEdges = open("performanceData/performancebinaryHeapEdges.txt", "a")
     binomialHeapVertices = open("performanceData/performancebinomialHeapVertices.txt", "a")

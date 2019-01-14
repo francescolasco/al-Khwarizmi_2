@@ -108,7 +108,12 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             :param d: size of the d-heap.
             :return: the list of the exploration.
             """
-            assert d >= 1, "spippettone"
+            try:
+                assert d >= 1, "'d' for the DHeap must be greater than 1!"
+            except AssertionError as myError:
+                print(myError)
+                return
+
             pq = PQ_DHeap(d)
             exploredNodes = []
             enqueuedVertices = []
@@ -205,9 +210,14 @@ def addEdges(graph, nEdges):
     :param graph: graph to modify.
     :param nEdges: number of edges to add.
     """
-    assert (not graph.isEmpty()), "graph must contain at least an element."
-    assert (not graph.isFull()), "graph is already full."
-    assert (graph.numEdges() + 2 * nEdges <= graph.numNodes() * graph.numNodes() - 1), "too many edges to add."
+    try:
+        assert (not graph.isEmpty()), "Graph must contain at least an element."
+        assert (not graph.isFull()), "Graph is already full."
+        assert (graph.numEdges() + 2 * nEdges <= graph.numNodes() * graph.numNodes() - 1), "Too many edges to add."
+    except AssertionError as myError:
+        print(myError)
+        return
+
     verticesID = list(graph.nodes.keys())
     for i in range (nEdges):
         headVertex = choice(list(filter(lambda i: sorted(graph.getAdj(i) + [i]) != sorted(verticesID), verticesID)))
