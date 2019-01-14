@@ -22,7 +22,8 @@ fclose(dID);
 %create new figure
 figure
 hold on;
-legend();
+leg = legend();
+set(leg,'position',[.22 .65 .1 .1]);
 plot(binaryScan{1},binaryScan{2},'DisplayName', 'Binary Heap')
 plot(binomialScan{1},binomialScan{2},'DisplayName','Binomial Heap')
 plot(dScan{1},dScan{2},'DisplayName','D-Heap')
