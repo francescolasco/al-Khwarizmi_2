@@ -41,13 +41,13 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             """
             pq = PQbinaryHeap()
             exploredNodes = []
-            pqIds = []
+            enqueuedVertices = []
 
             s = self.maxWeight()
             ID = s[0]
             KEY = -(s[1])
             pq.insert(ID, KEY)
-            pqIds.append(ID)
+            enqueuedVertices.append(ID)
 
             while not pq.isEmpty():
                 u = pq.findMin()
@@ -58,9 +58,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in pqIds:
+                    if ID not in enqueuedVertices:
                         pq.insert(ID, KEY)
-                        pqIds.append(ID)
+                        enqueuedVertices.append(ID)
 
             return exploredNodes
 
@@ -75,13 +75,13 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             """
             pq = PQbinomialHeap()
             exploredNodes = []
-            pqIds = []
+            enqueuedVertices = []
 
             s = self.maxWeight()
             ID = s[0]
             KEY = -(s[1])
             pq.insert(ID, KEY)
-            pqIds.append(ID)
+            enqueuedVertices.append(ID)
 
             while not pq.isEmpty():
                 u = pq.findMin()
@@ -92,9 +92,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in pqIds:
+                    if ID not in enqueuedVertices:
                         pq.insert(ID, KEY)
-                        pqIds.append(ID)
+                        enqueuedVertices.append(ID)
 
             return exploredNodes
 
@@ -111,13 +111,13 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             assert d >= 1, "spippettone"
             pq = PQ_DHeap(d)
             exploredNodes = []
-            pqIds = []
+            enqueuedVertices = []
 
             s = self.maxWeight()
             ID = s[0]
             KEY = -(s[1])
             pq.insert(ID, KEY)
-            pqIds.append(ID)
+            enqueuedVertices.append(ID)
 
             while not pq.isEmpty():
                 u = pq.findMin()
@@ -128,9 +128,9 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in pqIds:
+                    if ID not in enqueuedVertices:
                         pq.insert(ID, KEY)
-                        pqIds.append(ID)
+                        enqueuedVertices.append(ID)
 
             return exploredNodes
 
