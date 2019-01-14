@@ -47,6 +47,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             ID = s[0]
             KEY = -(s[1])
             pq.insert(ID, KEY)
+            pqIds.append(ID)
 
             while not pq.isEmpty():
                 u = pq.findMin()
@@ -57,7 +58,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in exploredNodes and ID not in pqIds:
+                    if ID not in pqIds:
                         pq.insert(ID, KEY)
                         pqIds.append(ID)
 
@@ -80,6 +81,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             ID = s[0]
             KEY = -(s[1])
             pq.insert(ID, KEY)
+            pqIds.append(ID)
 
             while not pq.isEmpty():
                 u = pq.findMin()
@@ -90,7 +92,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in exploredNodes and ID not in pqIds:
+                    if ID not in pqIds:
                         pq.insert(ID, KEY)
                         pqIds.append(ID)
 
@@ -115,6 +117,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
             ID = s[0]
             KEY = -(s[1])
             pq.insert(ID, KEY)
+            pqIds.append(ID)
 
             while not pq.isEmpty():
                 u = pq.findMin()
@@ -125,7 +128,7 @@ class GraphIL_prioritySearch(GraphIncidenceList):
                 for ID in self.getAdj(u):
                     node = self.getNode(ID)
                     KEY = -(node.getWeight())
-                    if ID not in exploredNodes and ID not in pqIds:
+                    if ID not in pqIds:
                         pq.insert(ID, KEY)
                         pqIds.append(ID)
 
