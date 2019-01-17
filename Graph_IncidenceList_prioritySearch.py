@@ -1,3 +1,15 @@
+"""
+    File name: AvlLinkedList.py
+    Author: Francesco Lasco && Giorgio Luciano Liberatore
+    Date created: 03/01/2019
+    Date last modified: 17/01/2019
+    Python Version: 3.7
+
+    Questo modulo contiene la classe GraphIL_prioritySearch,
+    maggiori info nel file di relazione.
+"""
+
+
 from priorityQueue.PQ_Dheap import PQ_DHeap
 from priorityQueue.PQbinaryHeap import PQbinaryHeap
 from priorityQueue.PQbinomialHeap import PQbinomialHeap
@@ -226,3 +238,36 @@ def addEdges(graph, nEdges):
         
         graph.insertEdge(headVertex, tailVertex)
         graph.insertEdge(tailVertex, headVertex)
+
+
+if __name__ == "__main__":
+    #building a graph with 100 vertices.
+    graph = buildGraph(100)
+    
+    #adding new vertices and edges.
+    n = graph.numNodes()
+    m = graph.numEdges()
+    print(f"Il grafo ha {n} vertici e {m/2} archi non orientati prima delle aggiunte.")
+    
+    addVertices(graph, 10)
+    addEdges(graph, 10)
+
+    n = graph.numNodes()
+    m = graph.numEdges()
+
+    print(f"Il grafo ha {n} vertici e {m/2} archi non orientati dopo le aggiunte.")
+
+    #test search
+
+    print("prioritySearch implemented with DHeap, D = 10.")
+    l = graph.prioritySearch_PQ_DHeap(10)
+    print(f"Risultato della visita:{l}")
+
+    print("prioritySearch implemented with binaryHeap.")
+    l = graph.prioritySearch_PQbinaryHeap()
+    print(f"Risultato della visita:{l}")
+
+    print("prioritySearch implemented with binomialHeap.")
+    l = graph.prioritySearch_PQbinomialHeap()
+    print(f"Risultato della visita:{l}")
+    
